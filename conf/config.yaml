@@ -1,0 +1,15 @@
+# grpc config
+grpc:
+  host: ""
+  port: ":9090"
+  name: "calendar-grpc"
+
+
+db:
+  host: 127.0.0.1
+  username: root
+  password: root
+  database: calendar
+  max-idle-connections: 20
+  max-open-connections": 10
+  max-connection-life-time-seconds: 600

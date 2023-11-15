@@ -1,0 +1,18 @@
+mode: set
+github.com/superjcd/calendarservice/service/implement/service.go:22.71,23.28 1 1
+github.com/superjcd/calendarservice/service/implement/service.go:23.28,25.3 1 0
+github.com/superjcd/calendarservice/service/implement/service.go:27.2,27.17 1 1
+github.com/superjcd/calendarservice/service/implement/service.go:27.17,30.3 2 1
+github.com/superjcd/calendarservice/service/implement/service.go:32.2,32.16 1 1
+github.com/superjcd/calendarservice/service/implement/service.go:35.107,43.2 2 1
+github.com/superjcd/calendarservice/service/implement/service.go:45.132,50.22 3 1
+github.com/superjcd/calendarservice/service/implement/service.go:50.22,52.3 1 1
+github.com/superjcd/calendarservice/service/implement/service.go:54.2,59.23 2 1
+github.com/superjcd/calendarservice/service/implement/service.go:62.107,65.103 2 1
+github.com/superjcd/calendarservice/service/implement/service.go:65.103,67.3 1 0
+github.com/superjcd/calendarservice/service/implement/service.go:69.2,69.22 1 1
+github.com/superjcd/calendarservice/service/implement/service.go:69.22,71.3 1 1
+github.com/superjcd/calendarservice/service/implement/service.go:73.2,73.31 1 1
+github.com/superjcd/calendarservice/service/implement/service.go:76.41,79.35 2 1
+github.com/superjcd/calendarservice/service/implement/service.go:79.35,81.3 1 0
+github.com/superjcd/calendarservice/service/implement/service.go:82.2,82.12 1 1

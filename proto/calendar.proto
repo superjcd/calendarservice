@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+
+package superjcd.calendarservice.v1;
+
+option go_package = "github.com/superjcd/calendarservice/genproto/v1";
+
+// protoc --go_out=./ --go_opt=module=github.com/superjcd/calendarservice --go-grpc_out=./ --go-grpc_opt=module=github.com/superjcd/calendarservice ./proto/*.proto
+
+service CalendarService {
+    // create
+    rpc CreateCalendarItem(CreateCalendarItemRequest) returns (CreateCalendarItemResponse){};
+    // list 
+    rpc ListCalendarItems(ListCalendarItemsRequest) returns (ListCalendarItemsResponse){};
+    // update
+    rpc UpdateCalendarItem(UpdateCalendarItemRequest) returns (UpdateCalendarItemResponse){};
+}
+
+
+enum Status {
+    success = 0;
+    failure = 1;
+}
+
+message CalendarItem {
+    string creator =1;
+    string date = 2;
+    string content = 3;
+}
+
+message CreateCalendarItemRequest {
+    string creator =1;
+    string date = 2;
+    string content = 3;
+}
+
+
+message CreateCalendarItemResponse {
+   string msg =1;
+   Status status =2;
+}
+
+message ListCalendarItemsRequest {
+    string creator =1; 
+}
+
+
+message ListCalendarItemsResponse {
+    string msg =1;
+    Status status =2; 
+    repeated CalendarItem items=3;
+}
+
+
+message UpdateCalendarItemRequest {
+    string creator =1;
+    string date = 2;
+    string content = 3;
+}
+
+message UpdateCalendarItemResponse {
+    string msg =1;
+    Status status =2; 
+}
