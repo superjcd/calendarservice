@@ -52,16 +52,15 @@ func (suite *TestSuite) TestCreateCalendarItem() {
 
 	err := suite.cs.CreateCalendarItem(context.Background(), &rq)
 	assert.Nil(suite.T(), err)
-
 }
 
 func (suite *TestSuite) TestListCalendarItem() {
 	rq := v1.ListCalendarItemsRequest{
 		Creator: "jack",
 	}
-	items, err := suite.cs.ListCalendarItems(context.Background(), &rq)
+	resp, err := suite.cs.ListCalendarItems(context.Background(), &rq)
 	assert.Nil(suite.T(), err)
-	assert.Equal(suite.T(), 1, len(items))
+	assert.Equal(suite.T(), 1, len(resp.Items))
 }
 
 func (suite *TestSuite) TestUpdtCalendarItem() {
@@ -78,10 +77,10 @@ func (suite *TestSuite) TestUpdtCalendarItem() {
 	rq2 := v1.ListCalendarItemsRequest{
 		Creator: "jack",
 	}
-	items, err2 := suite.cs.ListCalendarItems(context.Background(), &rq2)
+	resp, err2 := suite.cs.ListCalendarItems(context.Background(), &rq2)
 	assert.Nil(suite.T(), err2)
-	assert.Equal(suite.T(), 1, len(items))
-	assert.Equal(suite.T(), "do something about this", items[0].Content)
+	assert.Equal(suite.T(), 1, len(resp.Items))
+	assert.Equal(suite.T(), "do something about this", resp.Items[0].Content)
 }
 
 func TestFakeStoreSuite(t *testing.T) {

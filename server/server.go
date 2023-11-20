@@ -52,13 +52,14 @@ func (s *GrpcServer) CreateCalendarItem(ctx context.Context, rq *v1.CreateCalend
 }
 
 func (s *GrpcServer) ListCalendarItems(ctx context.Context, rq *v1.ListCalendarItemsRequest) (*v1.ListCalendarItemsResponse, error) {
-	items, err := s.service.ListCalendarItems(ctx, rq)
+	resp, err := s.service.ListCalendarItems(ctx, rq)
 	if err != nil {
 		return &v1.ListCalendarItemsResponse{Msg: "failed", Status: v1.Status_failure}, err
 	}
 
 	response_items := make([]*v1.CalendarItem, 10)
-	for _, item := range items {
+
+	for _, item := range resp.Items {
 		response_items = append(response_items, &v1.CalendarItem{
 			Creator: item.Creator,
 			Date:    item.Date,

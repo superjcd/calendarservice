@@ -8,7 +8,7 @@ import (
 
 type CalendarService interface {
 	CreateCalendarItem(ctx context.Context, rq *v1.CreateCalendarItemRequest) error
-	ListCalendarItems(ctx context.Context, rq *v1.ListCalendarItemsRequest) ([]*CalendarItem, error)
+	ListCalendarItems(ctx context.Context, rq *v1.ListCalendarItemsRequest) (ListCalendarItemResponse, error)
 	UpdateCalendarItem(ctx context.Context, rq *v1.UpdateCalendarItemRequest) error
 	Close() error
 }

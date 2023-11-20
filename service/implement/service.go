@@ -42,8 +42,8 @@ func (s *clandar_service) CreateCalendarItem(ctx context.Context, rq *v1.CreateC
 	return s.db.Create(&item).Error
 }
 
-func (s *clandar_service) ListCalendarItems(ctx context.Context, rq *v1.ListCalendarItemsRequest) ([]*service.CalendarItem, error) {
-	var items []*service.CalendarItem
+func (s *clandar_service) ListCalendarItems(ctx context.Context, rq *v1.ListCalendarItemsRequest) (service.ListCalendarItemResponse, error) {
+	var resp service.ListCalendarItemResponse
 
 	tx := s.db
 
@@ -52,11 +52,12 @@ func (s *clandar_service) ListCalendarItems(ctx context.Context, rq *v1.ListCale
 	}
 
 	d := tx.
-		Find(&items).  // items []*service.CalendarItem
+		Find(&resp.Items).
 		Offset(-1).
-		Limit(-1)
+		Limit(-1).
+		Count(&resp.TotalCount)
 
-	return items, d.Error
+	return resp, d.Error
 }
 
 func (s *clandar_service) UpdateCalendarItem(ctx context.Context, rq *v1.UpdateCalendarItemRequest) error {
